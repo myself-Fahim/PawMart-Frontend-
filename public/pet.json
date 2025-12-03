@@ -1,0 +1,122 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co.com/nNyMT4pS/grooming.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/39kwmmCw/Dog-Bathing.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Setup Consultation",
+    "providerName": "WarmWhiskers Home Care",
+    "providerEmail": "support@warmwhiskers.com",
+    "price": 18,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Help choosing and safely setting up heated beds and blankets for cats and small dogs.",
+    "image": "https://i.ibb.co.com/4Z47pPvX/11062b-b00c3bdd2d7046b1a578bf3195032184-mv2-d-3500-2333-s-2.jpg",
+    "category": "Home Comfort"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Cold-Weather Obedience Walks",
+    "providerName": "SnowTrail Trainers",
+    "providerEmail": "bookings@snowtrail.com",
+    "price": 22,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Guided winter walks focusing on leash manners and safe outdoor behavior in chilly conditions.",
+    "image": "https://i.ibb.co.com/wNj66BYN/Dog-Training-Service.jpg",
+    "category": "Training"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Indoor Winter Playtime for High-Energy Pets",
+    "providerName": "FrostFree Fun Zone",
+    "providerEmail": "play@frostfreefun.com",
+    "price": 15,
+    "rating": 4.8,
+    "slotsAvailable": 8,
+    "description": "Supervised indoor games and agility activities to keep pets active when it’s too cold outside.",
+    "image": "https://i.ibb.co.com/vxNXrhPp/images-q-tbn-ANd9-Gc-T2n-Rc-TPu-CXp9-Ed-Kj-MLDrq-n-Z5-NYx-Izp-Ic-D6fs5r-B5-PW15s3rjd-Yt9s-X57-JMdv-N.jpg",
+    "category": "Exercise"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Senior Pet Winter Wellness Check",
+    "providerName": "GentlePaws Vet Care",
+    "providerEmail": "appointments@gentlepaws.com",
+    "price": 40,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Winter-focused health screening for seniors, including joint care tips and warmth planning.",
+    "image": "https://i.ibb.co.com/mVDM4zKt/images-q-tbn-ANd9-Gc-R4xa-Dybb7hq-Qn-Nv-D6-I9a-T4iy-Wml-HJ-k-CK9-LQ-s.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Hydration & Skin Moisture Package",
+    "providerName": "ArcticGlow Pet Spa",
+    "providerEmail": "care@arcticglow.com",
+    "price": 28,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Dry-skin relief with pet-safe moisturizers, coat conditioning, and hydration guidance.",
+    "image": "https://i.ibb.co.com/cK8PGfBM/images-q-tbn-ANd9-Gc-Rn-O2-KNl3ze84-EMrq-CLv-Ed-TIUSa-VF-Aq-Tfg-Ej-Y2n-G-gm-Kl-Fg-Jr-Hbly-F1-Nc-Gre.jpg",
+    "category": "Skin Care"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Winter Nutrition Plan for Pets",
+    "providerName": "NutriTail Advisors",
+    "providerEmail": "plans@nutritail.com",
+    "price": 20,
+    "rating": 4.5,
+    "slotsAvailable": 7,
+    "description": "Personalized meal plan to support energy needs, weight control, and immunity in winter.",
+    "image": "https://i.ibb.co.com/Wp0C7Q2p/images-q-tbn-ANd9-Gc-Se-Xt-U4-Q0-Noeq-NGt-V9-X4eag-H5-UW-kk-PCa-WJVw-s.jpg",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Paw Boot Camp & Fitting",
+    "providerName": "PolarPaws Outfitters",
+    "providerEmail": "fit@polarpaws.com",
+    "price": 19,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Boot sizing and training session to protect paws from snow, salt, and ice.",
+    "image": "https://i.ibb.co.com/s9fHw1Gj/dhaka-pet-care-kuchaman-kuchaman-veterinary-hospitals-w6innlcm7h.jpg",
+    "category": "Protection"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Pet Safe Heater & Home Winterproofing Audit",
+    "providerName": "CozyDen Services",
+    "providerEmail": "audit@cozyden.com",
+    "price": 35,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "In-home safety check for heaters, drafts, and pet-friendly warm zones.",
+    "image": "https://i.ibb.co.com/Tqmv51jx/premium-photo-1663040477032-0cb4ee5402bc-fm-jpg-q-60-w-3000-ixlib-rb-4-1.jpg",
+    "category": "Safety"
+  }
+]
