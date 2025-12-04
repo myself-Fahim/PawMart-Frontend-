@@ -40,7 +40,8 @@ const router = createBrowserRouter([
             
             {
                 path:'pet_supplies',
-                Component:Pet_Supplies
+                Component:Pet_Supplies,
+                loader:()=>fetch('http://localhost:4000/addlist')
             },
 
             {

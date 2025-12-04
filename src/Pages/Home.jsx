@@ -29,6 +29,7 @@ import Loader from '../Components/Loader';
 const Home = () => {
     const { pets, loader } = usePetData()
 
+
     return (
         <div className='mb-[70px]'>
 
