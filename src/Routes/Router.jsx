@@ -11,6 +11,8 @@ import Pet_Supplies from "../Pages/Pet & Supplies";
 import AddListing from "../Pages/AddListing";
 import MyListing from "../Pages/MyListing";
 import MyOrder from "../Pages/MyOrder";
+import ListDetails from "../Pages/ListDetails";
+
 
 const router = createBrowserRouter([
     {
@@ -21,7 +23,6 @@ const router = createBrowserRouter([
                 path: '/',
                 Component: Home
             },
-          
             {
                 path: 'profile',
                 element: <PrivateRoutes>
@@ -37,26 +38,32 @@ const router = createBrowserRouter([
                 Component: Register
             },
 
-            
             {
-                path:'pet_supplies',
-                Component:Pet_Supplies,
-                loader:()=>fetch('http://localhost:4000/addlist')
+                path: 'pet_supplies',
+                Component: Pet_Supplies,
+                loader: () => fetch('http://localhost:4000/addlist')
             },
 
             {
-                path:'addlisting',
-                Component:AddListing
+                path: 'addlisting',
+                Component: AddListing
             },
             {
-                path:'mylistings',
-                Component:MyListing
+                path: 'mylistings',
+                Component: MyListing
             },
             {
-                path:'myorders',
-                Component:MyOrder
+                path: 'myorders',
+                Component: MyOrder
+            },
+            {
+                path: 'listdetails/:id',
+                element: <PrivateRoutes>
+                    <ListDetails></ListDetails>
+                </PrivateRoutes>, 
+                loader: ({ params }) => fetch(`http://localhost:4000/listdetails/${params.id}`)
             }
-        
+
 
         ]
     }

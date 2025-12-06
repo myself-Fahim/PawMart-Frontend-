@@ -26,7 +26,7 @@ const Pet_Supplies = () => {
     return (
         <div className='mt-15 mb-20 px-[20px] lg:px-[70px]'>
 
-            <div className='flex justify-between'>
+            <div className='flex flex-col gap-6 md:gap-0 md:flex-row justify-between'>
                 <h1 className='font-bold text-2xl'>Total Data ({SearchCategory.length})</h1>
 
                 <select onChange={(e) => setCategoryName(e.target.value)} name='category' defaultValue="Select Category" className="select select-secondary">
