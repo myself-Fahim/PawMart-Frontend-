@@ -5,26 +5,26 @@ import PetCard from '../Components/PetCard';
 import PetExperts from '../Components/PetExperts';
 import Loader from '../Components/Loader';
 
-// const petExperts = [
-//     {
-//         "name": "Dr. Hasan Karim",
-//         "fieldRelatedToPetCare": "Veterinary Medicine (Small Animals)",
-//         "experience": "5 years",
-//         "image": "https://i.ibb.co.com/R4kfVmsw/premium-photo-1661492071612-98d26885614a-fm-jpg-q-60-w-3000-ixlib-rb-4-1.jpg"
-//     },
-//     {
-//         "name": "Dr. Steve Martin",
-//         "fieldRelatedToPetCare": "Pet Nutrition & Dietary Planning",
-//         "experience": "4 years",
-//         "image": "https://i.ibb.co.com/mFyRFzvP/ai-generated-a-man-in-a-white-coat-holding-a-small-dog-photo.jpg"
-//     },
-//     {
-//         "name": "Dr. Mark Austin",
-//         "fieldRelatedToPetCare": "Animal Behavior & Training",
-//         "experience": "6 years",
-//         "image": "https://i.ibb.co.com/FLx9xj9J/medium-shot-doctor-using-his-tablet-23-2148231325.jpg"
-//     }
-// ]
+const Experts = [
+    {
+        "name": "Dr. Hasan Karim",
+        "fieldRelatedToPetCare": "Veterinary Medicine (Small Animals)",
+        "experience": "5 years",
+        "image": "https://i.ibb.co.com/R4kfVmsw/premium-photo-1661492071612-98d26885614a-fm-jpg-q-60-w-3000-ixlib-rb-4-1.jpg"
+    },
+    {
+        "name": "Dr. Steve Martin",
+        "fieldRelatedToPetCare": "Pet Nutrition & Dietary Planning",
+        "experience": "4 years",
+        "image": "https://i.ibb.co.com/mFyRFzvP/ai-generated-a-man-in-a-white-coat-holding-a-small-dog-photo.jpg"
+    },
+    {
+        "name": "Dr. Mark Austin",
+        "fieldRelatedToPetCare": "Animal Behavior & Training",
+        "experience": "6 years",
+        "image": "https://i.ibb.co.com/FLx9xj9J/medium-shot-doctor-using-his-tablet-23-2148231325.jpg"
+    }
+]
 
 const Home = () => {
     const { pets, loader } = usePetData()
@@ -33,11 +33,11 @@ const Home = () => {
     return (
         <div className='mb-[70px]'>
 
-            <h1>Home</h1>
 
 
 
-            {/* <section className='mt-15 mx-5 lg:mx-20 rounded-xl  flex items-center justify-center'
+
+            <section className='mt-15 mx-5 lg:mx-20 rounded-xl  flex items-center justify-center'
                 style={{
                     backgroundImage: `url("https://i.ibb.co.com/JRPvH6FW/360-F-298201895-5b-Pj-YW2q-PWJ52-Wg40-H80d8h-CAHs-PIfp-E.jpg")`,
                     backgroundSize: "cover",
@@ -49,7 +49,7 @@ const Home = () => {
                 <h1
                     className='text-center font-bold text-2xl lg:text-4xl text-slate-800 animate__animated animate__fadeInDown'
                 >
-                    “Your Pet’s Health, Comfort & Happiness <br /> is Our Priority”
+                  Treats, Toys & Love  Delivered <br /> to Your Door 🐾🎁
                 </h1>
 
             </section>
@@ -60,55 +60,40 @@ const Home = () => {
                 loader ? <Loader></Loader>
                     :
                     <section className='mt-[60px] '>
-                        <h1 className='text-center font-bold text-2xl mb-[40px]'>Popular Winter Care Services</h1>
+                        <h1 className='text-center font-bold text-2xl mb-[40px]'>Find Your Furry Friend Today!</h1>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-20'>
                             {
-                                pets.slice(0, 6).map(pet => <PetCard key={pet.serviceId} pet={pet}></PetCard>)
+                                
+                                 [...pets].sort((a,b)=> b._id.localeCompare(a._id)).slice(0, 6).map(pet => <PetCard key={pet.serviceId} pet={pet}></PetCard>)
                             }
                         </div>
                     </section>
             }
 
             <section className='my-[90px]'>
-                <h1 className='text-center font-bold text-2xl mb-[40px]'>Winter Care Tips For Pets </h1>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-5 lg:px-20 text-justify '>
+                <div className='   px-5 lg:px-20 text-justify '>
                     <div className='bg-base-300 p-6 border border-black rounded-[14px] shadow-lg '>
-                        <h1 className='text-3xl'>🏠</h1>
-                        <h1 className='my-[10px] font-bold text-black text-xl'>Warmth & Shelter</h1>
-                        <p className='text-[1rem] text-[grey]'>Keep your pet comfortably warm, especially during cold nights. Provide cozy bedding away from drafts, consider pet-safe sweaters for short-haired or small breeds, and never leave pets outside for long periods. Outdoor pets need insulated, dry shelters with wind protection.</p>
+                          <h1 className='text-center font-bold text-2xl mb-5'>Why Adopt from PawMart? </h1>
+                  
+                        <p className='text-[1rem] text-[grey]'>At PawMart, we believe every pet deserves a loving home. That’s why we make the adoption process safe, simple, and trustworthy for everyone. Our platform connects caring families with pets who are waiting for a second chance—ensuring you find the perfect companion with confidence.Every pet listed on PawMart is posted by verified owners, shelters, or caregivers. We carefully review each profile so you can adopt with peace of mind.From browsing pets to contacting owners, our user-friendly system makes adoption smooth and stress-free, even for first-time pet parents.By adopting through PawMart, you’re giving an animal a chance at a better life. Every adoption helps reduce abandonment and supports responsible pet care in your community.</p>
                     </div>
 
-                    <div className='bg-base-300 p-6 border border-black rounded-[14px] shadow-lg'>
-                        <h1 className='text-3xl'>🚰</h1>
-                        <h1 className='my-[10px] font-bold text-black text-xl'>Winter Nutrition & Hydrationr</h1>
-                        <p className='text-[1rem] text-[grey]'>Cold weather can increase energy needs, so some pets may require slightly more food—especially active or outdoor ones. Always keep fresh (not frozen) water available, and watch for reduced drinking in winter since dehydration can still happen indoors with heaters running.</p>
-                    </div>
+                   
 
-                    <div className='bg-base-300 p-6 border border-black rounded-[14px] shadow-lg'>
-
-                        <h1 className='text-3xl'>🐾</h1>
-                        <h1 className='my-[10px] font-bold text-black text-xl'>Paw, Skin & Coat Protection</h1>
-                        <p className='text-[1rem] text-[grey]'>Snow, ice, and road salt can irritate paws and skin. Wipe paws and belly after walks, trim fur between paw pads to reduce ice buildup, and use pet-safe balm if paws crack. Regular brushing helps maintain coat health and prevents dry, flaky skin.</p>
-                    </div>
-
-                    <div className='bg-base-300 p-6 border border-black rounded-[14px] shadow-lg'>
-                        <h1 className='text-3xl'>⚠️</h1>
-                        <h1 className='my-[10px] font-bold text-black text-xl'>Safe Exercise & Seasonal Hazards</h1>
-                        <p className='text-[1rem] text-[grey]'>Pets still need movement, but winter surfaces can be slippery and dangerous. Shorten walks in extreme cold, avoid frozen lakes or salted sidewalks, and warm up indoors if needed. Also keep pets away from antifreeze, heaters, and holiday décor that can be toxic or cause burns</p>
-                    </div>
+                  
 
                 </div>
             </section>
 
 
             <section className='mt-[60px]'>
-                <h1 className='font-bold text-2xl text-center mb-[30px]'>Meet Our Expert Vets</h1>
+                <h1 className='font-bold text-2xl text-center mb-[30px]'>Meet Our Pet Heroes</h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-20'>
                     {
-                        petExperts.map(expert => <PetExperts key={expert.name} expert={expert}></PetExperts>)
+                        Experts.map(expert => <PetExperts key={expert.name} expert={expert}></PetExperts>)
                     }
                 </div>
-            </section> */}
+            </section>
 
         </div>
     );

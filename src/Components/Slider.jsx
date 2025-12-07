@@ -20,12 +20,12 @@ const Slider = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='flex justify-center w-full h-[600px] rounded-md items-center'>
-                        <img src="https://i.ibb.co.com/Fk4vRbN7/cat-warm-and-healthy-in-winter-weather.jpg" className='w-full object-cover h-full' />
+                        <img src="https://bestfriendspetcare.com/wp-content/uploads/2023/05/pet-adoption-main-photo-resize-scaled-2.jpg" className='w-full object-cover h-full' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='flex justify-center w-full h-[600px]  rounded-md items-center'>
-                      <img src="https://i.ibb.co.com/5gZKsYBr/funny-cat-blanket-suitcase-23-2147888799.jpg" className='w-full object-cover h-full' alt="" />
+                      <img src="https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/adopt-a-pet-adopting-a-dog-selecting-your-dog__FocusFillWzE0NzIsNjI0LCJ5IiwxMDFd.jpg" className='w-full object-cover h-full' alt="" />
                     </div>
                 </SwiperSlide>
             </Swiper>
