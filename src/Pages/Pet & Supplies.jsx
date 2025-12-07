@@ -36,7 +36,7 @@ const Pet_Supplies = () => {
                     <option>Pet</option>
                     <option>Food</option>
                     <option>Accessories</option>
-                    <option>Care Products</option>
+                    <option>care</option>
                 </select>
             </div>
 

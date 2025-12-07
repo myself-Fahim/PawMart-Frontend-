@@ -12,6 +12,7 @@ import AddListing from "../Pages/AddListing";
 import MyListing from "../Pages/MyListing";
 import MyOrder from "../Pages/MyOrder";
 import ListDetails from "../Pages/ListDetails";
+import Categories from "../Components/Categories";
 
 
 const router = createBrowserRouter([
@@ -69,7 +70,14 @@ const router = createBrowserRouter([
                     <ListDetails></ListDetails>
                 </PrivateRoutes>, 
                 loader: ({ params }) => fetch(`http://localhost:4000/listdetails/${params.id}`)
+            },
+
+            {
+                path:'categories/:categoryName',
+                Component:Categories
             }
+
+
 
 
         ]

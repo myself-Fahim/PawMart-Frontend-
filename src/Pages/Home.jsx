@@ -4,6 +4,7 @@ import usePetData from '../Hooks/usePetData';
 import PetCard from '../Components/PetCard';
 import PetExperts from '../Components/PetExperts';
 import Loader from '../Components/Loader';
+import { Link } from 'react-router';
 
 const Experts = [
     {
@@ -56,6 +57,38 @@ const Home = () => {
 
 
             <Slider></Slider>
+
+
+            <h1 className='font-bold text-2xl text-center mt-20'>Categories</h1>
+            <section className='mb-20 mt-10 flex flex-col items-center md:flex-row justify-center gap-8'>
+                <Link to={`categories/pet`} className='w-[300px] h-[200px] bg-yellow-600 rounded-[40px] flex items-center justify-center'>
+                    <h1 className='text-white font-bold text-2xl'>Pet</h1>
+                </Link>
+                <Link to={`categories/food`} className='w-[300px] h-[200px] bg-green-600 rounded-[40px] flex items-center justify-center'>
+                    <h1 className='text-white font-bold text-2xl'>Food</h1>
+                </Link>
+                <Link to={`categories/accessories`} className='w-[300px] h-[200px] bg-blue-600 rounded-[40px] flex items-center justify-center'>
+                    <h1 className='text-white font-bold text-2xl'>Accessories</h1>
+                </Link>
+                <Link to={`categories/care`} className='w-[300px] h-[200px] bg-red-600 rounded-[40px] flex items-center justify-center'>
+                    <h1 className='text-white font-bold text-2xl'>Care</h1>
+                </Link>
+            </section>
+            
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
             {
                 loader ? <Loader></Loader>
                     :

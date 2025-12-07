@@ -1,10 +1,8 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router'
+import { Link } from 'react-router';
 
-
-const PetSuppliesCard = ({ pet }) => {
-    const { image, category, name, price, location, _id } = pet
-
+const Category = ({ caategory }) => {
+    const { image,name, price, category, location ,_id} = caategory
     return (
         <div>
             <div className=' p-10 shadow-2xl rounded-[14px]'>
@@ -26,4 +24,4 @@ const PetSuppliesCard = ({ pet }) => {
     );
 };
 
-export default PetSuppliesCard;
+export default Category;
