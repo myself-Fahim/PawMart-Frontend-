@@ -54,7 +54,7 @@ const ListDetails = () => {
             <Toaster></Toaster>
             <div className=" bg-base-200  min-h-screen pt-20 px-[20px] lg:px-[40px]">
                 <div className=" grid grid-cols-1 gap-10 px-6 lg:px-0 lg:grid-cols-[1fr_1fr] items-center  bg-white py-10 lg:pl-10 rounded-[15px]">
-                    <div className='flex flex-col  w-full lg:w-auto border-b pb-20 lg:border-b-0 lg:pb-0 lg:flex-row items-center lg:border-r pr-20'>
+                    <div className='flex flex-col  w-full lg:w-auto border-b pb-20 lg:border-b-0 lg:pb-0 lg:flex-row items-center lg:border-r lg:pr-20'>
                         <img
                             src={image}
                             className="max-w-[200px] mb-10 lg:mr-8 rounded-lg shadow-2xl"

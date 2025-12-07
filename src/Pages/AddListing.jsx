@@ -59,7 +59,7 @@ const AddListing = () => {
                         required
                     >
                         <option value="">Select Category</option>
-                        <option value="pets">Pets</option>
+                        <option value="pet">Pet</option>
                         <option value="food">Food</option>
                         <option value="accessories">Accessories</option>
                         <option value="care">Care Products</option>
@@ -118,7 +118,8 @@ const AddListing = () => {
                         type="email"
                         name="email"
                         className="input input-bordered bg-gray-100 w-full"
-                        value={user?.email}
+                        defaultValue={user?.email}
+                        readOnly
                     />
                     <button className="btn bg-slate-500 text-white w-full mt-5">Submit</button>
                 </fieldset>

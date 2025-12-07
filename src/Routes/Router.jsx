@@ -46,15 +46,22 @@ const router = createBrowserRouter([
 
             {
                 path: 'addlisting',
-                Component: AddListing
+                element: <PrivateRoutes>
+                    <AddListing></AddListing>
+                </PrivateRoutes>
             },
             {
-                path: 'mylistings',
-                Component: MyListing
+                path: 'mylistings/:email',
+                element:<PrivateRoutes>
+                    <MyListing></MyListing>
+                </PrivateRoutes>,
+              
             },
             {
-                path: 'myorders',
-                Component: MyOrder
+                path: 'myorders/:email',
+                element:<PrivateRoutes>
+                    <MyOrder></MyOrder>
+                </PrivateRoutes>,
             },
             {
                 path: 'listdetails/:id',

@@ -30,8 +30,8 @@ const Navbar = () => {
                             {
                                 user && <>
                                     <NavLink to='/addlisting'>Add Listing</NavLink>
-                                    <NavLink to='/mylistings'>My Listings</NavLink>
-                                    <NavLink to='/myorders'>My Orders</NavLink>
+                                    <NavLink to={`/mylistings/${user.email}`}>My Listings</NavLink>
+                                    <NavLink to={`/myorders/${user.email}`}>My Orders</NavLink>
                                 </>
                             }
 
@@ -47,8 +47,8 @@ const Navbar = () => {
                         {
                             user && <>
                                 <NavLink to='/addlisting' className='mr-5'>Add Listing</NavLink>
-                                <NavLink to='/mylistings' className='mr-5'>My Listings</NavLink>
-                                <NavLink to='/myorders'>My Orders</NavLink>
+                                <NavLink to={`/mylistings/${user.email}`} className='mr-5'>My Listings</NavLink>
+                                <NavLink to={`/myorders/${user.email}`}>My Orders</NavLink>
                             </>
                         }
                     </ul>
