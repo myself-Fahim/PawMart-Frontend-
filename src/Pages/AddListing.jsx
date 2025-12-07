@@ -38,6 +38,7 @@ const AddListing = () => {
 
     return (
         <div className='min-h-screen  flex  justify-center'>
+          
             <Toaster></Toaster>
             <form onSubmit={handleSubmit} className='w-full max-w-[600px] mx-4 md:mx-0'>
                 <fieldset className="fieldset shadow-2xl my-20 px-7 py-10 border-base-300 rounded-box  ">

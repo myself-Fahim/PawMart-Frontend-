@@ -106,7 +106,7 @@ const ListDetails = () => {
                                     <input value={name} type="text" name='productName' className="input w-full" placeholder="Name" /> <br />
 
                                     <label className="label font-bold pt-5">Product Quantity</label> <br />
-                                    <input defaultValue={category == 'pets' ? 1 : ''} type="number" name='quantity' className="input  w-full" placeholder="Quantity" /> <br />
+                                    <input defaultValue={category == 'pet' ? 1 : ''} type="number" name='quantity' className="input  w-full" placeholder="Quantity" /> <br />
 
                                     <label className="label font-bold pt-5">Product Price</label> <br />
                                     <input value={`${price} $`} type="text" name='price' className="input w-full" placeholder="Price" /> <br />

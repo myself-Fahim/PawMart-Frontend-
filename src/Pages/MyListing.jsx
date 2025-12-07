@@ -4,14 +4,21 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios'
 import Loader from '../Components/Loader';
+import toast, { Toaster } from 'react-hot-toast';
 const MyListing = () => {
     const { user } = useContext(AuthContext)
     const [listing, setListing] = useState([])
     const [listupdateId, setListUpdateId] = useState([])
+    const [localLoader,setLocalLoader] = useState(false)
     useEffect(() => {
+        setLocalLoader(true)
         fetch(`http://localhost:4000/mylistings/${user.email}`)
             .then(res => res.json())
-            .then(data => setListing(data))
+            .then(data => 
+            {
+                setListing(data)
+                setLocalLoader(false)
+            })
             .catch(err => console.log(err))
     }, [user.email])
 
@@ -20,12 +27,14 @@ const MyListing = () => {
         const newListing = listing.filter(list => list._id != id)
         setListing(newListing)
         axios.delete(`http://localhost:4000/delete/${id}`)
-            .then(res => console.log(res))
+            .then(res => toast.success('Deleted Successfully'))
+         document.getElementById('my_modal_2').close()
     }
 
 
 
     const handleUpdate = (id, e) => {
+        e.preventDefault()
 
         const form = e.target;
         const name = form.name.value
@@ -45,80 +54,97 @@ const MyListing = () => {
 
         // console.log(name,image,category,price)
         axios.put(`http://localhost:4000/update/${id}`, formData)
-            .then(res => console.log(res))
+            .then(res => {
+                return toast.success('Update Successfully')
+            })
+            .catch(err => toast.error(err))
+
+        toast.success('Update Successfully')
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 400);
+
+
+
+
     }
 
-    console.log(listupdateId)
+
 
     return (
+
         <div>
+            <h1 className='font-bold text-center mt-5 text-3xl underline'>My Listings</h1>
 
 
+
+            <Toaster></Toaster>
             {
-                listing.length ?   <div className="overflow-x-auto mt-15 flex md:justify-center">
-                {
-                    listing.length == 0
-                        ? <p className='font-bold text-[grey] mt-10'>No Available Data</p>
-                        :
-                        <table className="table  bg-white shadow-2xl md:max-w-[1000px] pl-5 md:pl-20 mb-[100px]">
-                            {/* head */}
-                            <thead >
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Operation</th>
-                                </tr>
-                            </thead>
+              localLoader?<Loader></Loader>:<div className="overflow-x-auto mt-15 flex md:justify-center">
+                    {
+                        listing.length == 0 
+                            ? <p className='font-bold text-[grey] mt-10'>No Available Data</p>
+                            : <table className="table  bg-white shadow-2xl md:max-w-[1000px] pl-5 md:pl-20 mb-[100px]">
+                                {/* head */}
+                                <thead >
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                {
-                                    listing.map(list => <tr key={list._id} >
+                                <tbody>
+                                    {
+                                        listing.map(list => <tr key={list._id} >
 
-                                        <td>
-                                            <div className="flex items-center gap-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle h-12 w-12">
-                                                        <img
-                                                            src={list.image}
-                                                            alt="Avatar Tailwind CSS Component" />
+                                            <td>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle h-12 w-12">
+                                                            <img
+                                                                src={list.image}
+                                                                alt="Avatar Tailwind CSS Component" />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className="font-bold text-xl">{list.name}</div>
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <div className="font-bold text-xl">{list.name}</div>
+                                            </td>
+                                            <td className='text-xl font-bold'>
+                                                {list.category}
+                                            </td>
+                                            <td className='text-xl font-bold'>{list.price} $</td>
+                                            <th>
+                                                <div className='flex items-center gap-5'>
+                                                    <button onClick={
+                                                        () => {
+                                                            document.getElementById('my_modal_2').showModal()
+                                                            setListUpdateId([list._id, list.name, list.price, list.image, list.description, list.location, list.category])
+                                                        }
+                                                    } className='btn btn-error text-white'>Delete</button>
+                                                    <button onClick={() => {
+                                                        document.getElementById('my_modal_3').showModal()
+                                                        setListUpdateId([list._id, list.name, list.price, list.image, list.description, list.location, list.category])
+                                                    }} className='btn btn-primary'>Update</button>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td className='text-xl font-bold'>
-                                            {list.category}
-                                        </td>
-                                        <td className='text-xl font-bold'>{list.price} $</td>
-                                        <th>
-                                            <div className='flex items-center gap-5'>
-                                                <button onClick={
-                                                () => {document.getElementById('my_modal_1').showModal()
-                                                     setListUpdateId([list._id, list.name, list.price, list.image, list.description, list.location, list.category])
-                                                }
-                                                } className='btn btn-error text-white'>Delete</button>
-                                                <button onClick={() => {
-                                                    document.getElementById('my_modal_3').showModal()
-                                                    setListUpdateId([list._id, list.name, list.price, list.image, list.description, list.location, list.category])
-                                                }} className='btn btn-primary'>Update</button>
-                                            </div>
-                                        </th>
-                                    </tr>)
-                                }
-                            </tbody>
-                        </table>
-                }
-            </div>
-                            : <Loader></Loader>
+                                            </th>
+                                        </tr>)
+                                    }
+                                </tbody>
+                            </table>
+                    }
+                </div>
+                   
             }
-          
+
 
             <dialog id="my_modal_3" className="modal my-15">
                 <div className="modal-box">
-                    <form method="dialog">
+                    <form >
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
@@ -172,15 +198,22 @@ const MyListing = () => {
                 </div>
             </dialog>
 
-            <dialog id="my_modal_1" className="modal">
+            <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Delete!</h3>
                     <p className="py-4">Are you want to delete?</p>
                     <div className="modal-action">
-                        <form method="dialog">
+                      
                             {/* if there is a button in form, it will close the modal */}
-                            <button onClick={() => handleDelete(listupdateId[0])}  className="btn">Yes</button>
-                        </form>
+                            <button onClick={() => handleDelete(listupdateId[0])} className="btn">Yes</button>
+
+                            <button
+                                onClick={() => document.getElementById('my_modal_2').close()}
+                                className="btn"
+                            >
+                                Close
+                            </button>
+                       
                     </div>
                 </div>
             </dialog>
