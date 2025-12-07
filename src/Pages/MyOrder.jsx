@@ -11,7 +11,7 @@ const MyOrder = () => {
     const [localLoader,setLocalLoader] = useState(false)
     useEffect(() => {
         setLocalLoader(true)
-        fetch(`http://localhost:4000/myorders/${user.email}`)
+        fetch(`http://pawmart10.vercel.app/myorders/${user.email}`)
             .then(res => res.json())
             .then(data => {setOrder(data)
                 setLocalLoader(false)

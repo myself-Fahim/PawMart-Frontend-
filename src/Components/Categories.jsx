@@ -9,7 +9,7 @@ const Categories = () => {
     const [loading,setLoading] = useState(false)
     useEffect(()=>{
         setLoading(true)
-        axios(`http://localhost:4000/categories/${categoryName}`)
+        axios(`http://pawmart10.vercel.app/categories/${categoryName}`)
         .then(res=>{
             setCategories(res.data)
             setLoading(false)

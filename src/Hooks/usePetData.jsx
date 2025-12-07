@@ -8,7 +8,7 @@ const usePetData = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/addlist')
+        fetch('http://pawmart10.vercel.app/addlist')
             .then(res => res.json())
             .then(data => setPets(data))
             .catch(error => setError(error))

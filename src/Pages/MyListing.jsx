@@ -12,7 +12,7 @@ const MyListing = () => {
     const [localLoader,setLocalLoader] = useState(false)
     useEffect(() => {
         setLocalLoader(true)
-        fetch(`http://localhost:4000/mylistings/${user.email}`)
+        fetch(`http://pawmart10.vercel.app/mylistings/${user.email}`)
             .then(res => res.json())
             .then(data => 
             {
@@ -26,7 +26,7 @@ const MyListing = () => {
     const handleDelete = (id) => {
         const newListing = listing.filter(list => list._id != id)
         setListing(newListing)
-        axios.delete(`http://localhost:4000/delete/${id}`)
+        axios.delete(`http://pawmart10.vercel.app/delete/${id}`)
             .then(res => toast.success('Deleted Successfully'))
          document.getElementById('my_modal_2').close()
     }
@@ -53,7 +53,7 @@ const MyListing = () => {
         }
 
         // console.log(name,image,category,price)
-        axios.put(`http://localhost:4000/update/${id}`, formData)
+        axios.put(`http://pawmart10.vercel.app/update/${id}`, formData)
             .then(res => {
                 return toast.success('Update Successfully')
             })

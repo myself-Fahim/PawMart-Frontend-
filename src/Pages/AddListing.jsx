@@ -28,7 +28,7 @@ const AddListing = () => {
             date,
             email,
         }
-        axios.post('http://localhost:4000/addlist',formData)
+        axios.post('http://pawmart10.vercel.app/addlist',formData)
         .then(res => console.log(res))
 
         toast.success('Submitted Successfully')

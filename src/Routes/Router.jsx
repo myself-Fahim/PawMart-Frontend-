@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             {
                 path: 'pet_supplies',
                 Component: Pet_Supplies,
-                loader: () => fetch('http://localhost:4000/addlist')
+                loader: () => fetch('http://pawmart10.vercel.app/addlist')
             },
 
             {
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes>
                     <ListDetails></ListDetails>
                 </PrivateRoutes>, 
-                loader: ({ params }) => fetch(`http://localhost:4000/listdetails/${params.id}`)
+                loader: ({ params }) => fetch(`http://pawmart10.vercel.app/listdetails/${params.id}`)
             },
 
             {
