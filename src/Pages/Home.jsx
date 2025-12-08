@@ -75,20 +75,7 @@ const Home = () => {
                 </Link>
             </section>
             
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
             {
                 loader ? <Loader></Loader>
                     :
@@ -97,7 +84,7 @@ const Home = () => {
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-20'>
                             {
                                 
-                                 [...pets].sort((a,b)=> b._id.localeCompare(a._id)).slice(0, 6).map(pet => <PetCard key={pet.serviceId} pet={pet}></PetCard>)
+                                 [...pets].sort((a,b)=> b._id.localeCompare(a._id)).slice(0, 6).map(pet => <PetCard key={pet._id} pet={pet}></PetCard>)
                             }
                         </div>
                     </section>

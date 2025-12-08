@@ -19,7 +19,7 @@ const MyListing = () => {
                 setListing(data)
                 setLocalLoader(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err?.message))
     }, [user.email])
 
 
@@ -57,7 +57,7 @@ const MyListing = () => {
             .then(res => {
                 return toast.success('Update Successfully')
             })
-            .catch(err => toast.error(err))
+            .catch(err => toast.error(err?.message))
 
         toast.success('Update Successfully')
 
@@ -79,7 +79,7 @@ const MyListing = () => {
 
 
 
-            <Toaster></Toaster>
+            <Toaster/>
             {
               localLoader?<Loader></Loader>:<div className="overflow-x-auto mt-15 flex md:justify-center">
                     {
@@ -149,7 +149,7 @@ const MyListing = () => {
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
                     <h1 className='mb-5 font-bold '>Update Data</h1>
-                    <form key={listupdateId[0]} onSubmit={(e) => handleUpdate(listupdateId[0], e)} className >
+                    <form key={listupdateId[0]} onSubmit={(e) => handleUpdate(listupdateId[0], e)}  >
                         <fieldset className="fieldset w-full  block mx-auto mx-10  py-8 border-base-300 rounded-box  border p-4">
 
                             <label className="label font-bold">Name</label> <br />

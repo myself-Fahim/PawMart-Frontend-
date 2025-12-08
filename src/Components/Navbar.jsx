@@ -31,7 +31,7 @@ const Navbar = () => {
 
     return (
         <div className='bg-slate-500 px-[10px] lg:px-[70px]'>
-            <Toaster></Toaster>
+            <Toaster/>
             <div className="navbar gap-3">
                 <div className="navbar-start">
                     <div className="dropdown text-white">

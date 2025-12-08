@@ -16,7 +16,7 @@ const MyOrder = () => {
             .then(data => {setOrder(data)
                 setLocalLoader(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err?.message))
     }, [user.email])
 
 const downloadPDF = () => {
