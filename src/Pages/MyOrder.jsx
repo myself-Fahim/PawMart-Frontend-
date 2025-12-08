@@ -11,7 +11,7 @@ const MyOrder = () => {
     const [localLoader,setLocalLoader] = useState(false)
     useEffect(() => {
         setLocalLoader(true)
-        fetch(`http://pawmart10.vercel.app/myorders/${user.email}`)
+        fetch(`https://pawmart10.vercel.app/myorders/${user.email}`)
             .then(res => res.json())
             .then(data => {setOrder(data)
                 setLocalLoader(false)
@@ -72,7 +72,7 @@ const downloadPDF = () => {
                         order.length == 0
                             ? <p className='font-bold text-[grey] mt-10'>No Available Data</p>
                             :
-                            <table className="table  bg-white shadow-2xl md:max-w-[1000px] pl-5 md:pl-20 mb-[50px]">
+                            <table className="table  shadow-2xl md:max-w-[1000px] pl-5 md:pl-20 mb-[50px]">
                                 {/* head */}
                                 <thead >
                                     <tr className='text-xl font-bold'>
@@ -114,7 +114,7 @@ const downloadPDF = () => {
                     
             }
 
-              <button onClick={downloadPDF} className={`${order.length == 0 && 'hidden'} btn block bg-red-700 text-white mx-auto`}>Download Report </button>
+              <button onClick={downloadPDF} className={`${order.length == 0 && 'hidden'} btn block bg-red-700 mb-[40px] text-white mx-auto`}>Download Report </button>
         </div>
     );
 };

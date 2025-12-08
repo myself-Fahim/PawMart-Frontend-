@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router'
+import AuthContext from '../AuthContext/AuthContext';
+import Loader from './Loader';
 
 
 const PetSuppliesCard = ({ pet }) => {
@@ -7,7 +9,9 @@ const PetSuppliesCard = ({ pet }) => {
 
     return (
         <div>
-            <div className=' p-10 shadow-2xl rounded-[14px]'>
+            
+               
+                <div className=' p-10 shadow-2xl rounded-[14px]'>
                 <div className='h-[300px]'>
                     <img className='w-full h-full rounded-xl object-cover' src={image} alt="" />
                 </div>
@@ -22,6 +26,10 @@ const PetSuppliesCard = ({ pet }) => {
                 <Link to={`/listdetails/${_id}`} className='btn flex  justify-center mt-[20px] bg-slate-500 rounded-xl text-white '>See Details</Link>
 
             </div>
+
+
+            
+        
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Category = ({ caategory }) => {
     const { image,name, price, category, location ,_id} = caategory
     return (
-        <div>
+        <div className='mb-[40px]'>
             <div className=' p-10 shadow-2xl rounded-[14px]'>
                 <div className='h-[300px]'>
                     <img className='w-full h-full rounded-xl object-cover' src={image} alt="" />

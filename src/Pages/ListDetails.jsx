@@ -36,13 +36,10 @@ const ListDetails = () => {
             quantity,
             address
         }
-        axios.post('http://pawmart10.vercel.app/order',formData)
+        axios.post('https://pawmart10.vercel.app/order',formData)
         .then(res => {
         document.getElementById('my_modal_3').close()
         toast.success('Submitted Successfully')
-        }).catch(err =>{
-            toast.error('Something went wrong')
-            
         })
     
         

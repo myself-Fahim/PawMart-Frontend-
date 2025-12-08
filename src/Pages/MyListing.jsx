@@ -12,7 +12,7 @@ const MyListing = () => {
     const [localLoader,setLocalLoader] = useState(false)
     useEffect(() => {
         setLocalLoader(true)
-        fetch(`http://pawmart10.vercel.app/mylistings/${user.email}`)
+        fetch(`https://pawmart10.vercel.app/mylistings/${user.email}`)
             .then(res => res.json())
             .then(data => 
             {
@@ -22,11 +22,12 @@ const MyListing = () => {
             .catch(err => console.log(err?.message))
     }, [user.email])
 
+    
 
     const handleDelete = (id) => {
         const newListing = listing.filter(list => list._id != id)
         setListing(newListing)
-        axios.delete(`http://pawmart10.vercel.app/delete/${id}`)
+        axios.delete(`https://pawmart10.vercel.app/delete/${id}`)
             .then(res => toast.success('Deleted Successfully'))
          document.getElementById('my_modal_2').close()
     }
@@ -53,14 +54,13 @@ const MyListing = () => {
         }
 
         // console.log(name,image,category,price)
-        axios.put(`http://pawmart10.vercel.app/update/${id}`, formData)
+        axios.put(`https://pawmart10.vercel.app/update/${id}`, formData)
             .then(res => {
                 return toast.success('Update Successfully')
             })
             .catch(err => toast.error(err?.message))
 
-        toast.success('Update Successfully')
-
+    
         setTimeout(() => {
             window.location.reload();
         }, 400);
@@ -84,8 +84,8 @@ const MyListing = () => {
               localLoader?<Loader></Loader>:<div className="overflow-x-auto mt-15 flex md:justify-center">
                     {
                         listing.length == 0 
-                            ? <p className='font-bold text-[grey] mt-10'>No Available Data</p>
-                            : <table className="table  bg-white shadow-2xl md:max-w-[1000px] pl-5 md:pl-20 mb-[100px]">
+                            ? <p className='font-bold mt-10'>No Available Data</p>
+                            : <table className="table  shadow-2xl md:max-w-[1000px] pl-5 md:pl-20 mb-[100px] ">
                                 {/* head */}
                                 <thead >
                                     <tr>
@@ -100,7 +100,7 @@ const MyListing = () => {
                                     {
                                         listing.map(list => <tr key={list._id} >
 
-                                            <td>
+                                            <td >
                                                 <div className="flex items-center gap-3">
                                                     <div className="avatar">
                                                         <div className="mask mask-squircle h-12 w-12">

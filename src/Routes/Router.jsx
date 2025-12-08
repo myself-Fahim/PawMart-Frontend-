@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Home from "../Pages/Home";
 import Root from "../Layout/Root";
 
-import MyProfile from "../Pages/MyProfile";
+
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoutes from "./PrivateRoutes";
@@ -13,6 +13,7 @@ import MyListing from "../Pages/MyListing";
 import MyOrder from "../Pages/MyOrder";
 import ListDetails from "../Pages/ListDetails";
 import Categories from "../Components/Categories";
+import Error from "../Components/Error";
 
 
 const router = createBrowserRouter([
@@ -24,12 +25,7 @@ const router = createBrowserRouter([
                 path: '/',
                 Component: Home
             },
-            {
-                path: 'profile',
-                element: <PrivateRoutes>
-                    <MyProfile></MyProfile>
-                </PrivateRoutes>
-            },
+         
             {
                 path: 'login',
                 Component: Login
@@ -42,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: 'pet_supplies',
                 Component: Pet_Supplies,
-                loader: () => fetch('http://pawmart10.vercel.app/addlist')
+                loader: () => fetch('https://pawmart10.vercel.app/addlist')
             },
 
             {
@@ -69,18 +65,18 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes>
                     <ListDetails></ListDetails>
                 </PrivateRoutes>, 
-                loader: ({ params }) => fetch(`http://pawmart10.vercel.app/listdetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://pawmart10.vercel.app/listdetails/${params.id}`)
             },
 
             {
                 path:'categories/:categoryName',
                 Component:Categories
             }
-
-
-
-
         ]
+    },
+    {
+        path:'*',
+        Component:Error
     }
 ])
 

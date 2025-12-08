@@ -9,8 +9,9 @@ const Pet_Supplies = () => {
     const petData = useLoaderData()
     const [CategoryName, setCategoryName] = useState('Select Category');
 
-    const SearchCategory = CategoryName === 'Select Category' || CategoryName === 'All Data' ? petData
-        : petData.filter(data => data.category.toLowerCase().includes(CategoryName.toLowerCase()))
+    const SearchCategory = petData ?
+     CategoryName === 'Select Category' || CategoryName === 'All Data' ? petData
+        : petData.filter(data => data.category.toLowerCase().includes(CategoryName.toLowerCase())) : []
         
 
     useEffect(() => {
@@ -37,6 +38,7 @@ const Pet_Supplies = () => {
                     <option>Food</option>
                     <option>Accessories</option>
                     <option>care</option>
+
                 </select>
             </div>
 
