@@ -14,8 +14,7 @@ const MyListing = () => {
         setLocalLoader(true)
         fetch(`https://pawmart10.vercel.app/mylistings/${user.email}`)
             .then(res => res.json())
-            .then(data => 
-            {
+            .then(data => {
                 setListing(data)
                 setLocalLoader(false)
             })
