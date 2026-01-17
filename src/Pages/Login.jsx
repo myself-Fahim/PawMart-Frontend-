@@ -76,7 +76,7 @@ const Login = () => {
                     </div>
 
 
-                    
+
 
                     <button className="btn btn-neutral bg-slate-500 border-none hover:transition ease-in-out mt-4">Login</button>
 

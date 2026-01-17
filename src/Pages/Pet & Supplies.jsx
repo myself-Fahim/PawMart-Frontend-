@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import PetSuppliesCard from '../Components/PetSuppliesCard';
 import Loader from '../Components/Loader';
+import Navbar from '../Components/Navbar';
 
 const Pet_Supplies = () => {
 
@@ -25,6 +26,9 @@ const Pet_Supplies = () => {
 
 
     return (
+
+        <>
+        <Navbar></Navbar>
         <div className='mt-15 mb-20 px-[20px] lg:px-[70px]'>
 
             <div className='flex flex-col gap-6 md:gap-0 md:flex-row justify-between'>
@@ -62,6 +66,8 @@ const Pet_Supplies = () => {
 
 
         </div>
+        </>
+   
 
 
     );

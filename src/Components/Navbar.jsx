@@ -1,28 +1,37 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import AuthContext from '../AuthContext/AuthContext';
 import { signOut } from 'firebase/auth';
 import auth from '../Firebase/firebase.init';
 import toast, { Toaster } from 'react-hot-toast';
+import { IoMdArrowDropdown } from "react-icons/io";
+
+
 
 const Navbar = () => {
     const { user } = useContext(AuthContext)
     const [showName, setShowName] = useState(false)
-    const [checked,setChecked] = useState(false)
+    const [checked, setChecked] = useState(false)
+    const [showDropdown, setShowDropdown] = useState(false);
+    const navigator = useNavigate();
     const handleSignOut = () => {
         signOut(auth)
             .then(() => toast.success('Logout Successfully'))
             .catch((error) => toast.error(error.message))
     }
 
-    const handletheme = () =>{
+    const handletheme = () => {
         setChecked(prev => !prev)
     }
 
-    useEffect(()=>{
+    const handleDashboard = () => {
+        navigator('/dashboard')
+    }
+
+    useEffect(() => {
         const theme = checked ? "dark" : "light"
-        document.documentElement.setAttribute("data-theme",theme)
-    },[checked])
+        document.documentElement.setAttribute("data-theme", theme)
+    }, [checked])
 
 
 
@@ -30,8 +39,8 @@ const Navbar = () => {
 
 
     return (
-        <div className='bg-slate-500 px-[5px] lg:px-[70px]'>
-            <Toaster/>
+        <div className='bg-black/60 z-50 py-4 px-[5px] lg:px-[70px]'>
+            <Toaster />
             <div className="flex justify-between p-3 ">
                 <div className="navbar-start">
                     <div className="dropdown text-white">
@@ -40,14 +49,24 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-slate-500 rounded-box z-5 mt-3 w-52 p-2 shadow">
-                            <NavLink to='/'>Home</NavLink>
-                            <NavLink to='/pet_supplies' >Pet & Supplies</NavLink>
+                            className="menu menu-sm dropdown-content bg-black/60 rounded-box z-5 mt-3 w-52 p-2 shadow">
+                            <NavLink to='/' className="flex titan">
+                                Home
+                            </NavLink>
+                            <NavLink to='/pet_supplies' className="titan" >
+                                Pet & Supplies
+                            </NavLink>
+                            <NavLink to='/about' className="titan" >
+                                About
+                            </NavLink>
+                            <NavLink to='/contact' className="titan" >
+                                Blog
+                            </NavLink>
                             {
                                 user && <>
-                                    <NavLink to='/addlisting'>Add Listing</NavLink>
-                                    <NavLink to={`/mylistings/${user.email}`}>My Listings</NavLink>
-                                    <NavLink to={`/myorders/${user.email}`}>My Orders</NavLink>
+                                    <NavLink to='/addlisting' className="titan">Add Listing</NavLink>
+                                    <NavLink to={`/mylistings/${user.email}`} className="titan">My Listings</NavLink>
+                                    <NavLink to={`/myorders/${user.email}`} className="titan">My Orders</NavLink>
                                 </>
                             }
 
@@ -56,56 +75,50 @@ const Navbar = () => {
                     <div className=' hidden md:flex items-center gap-2'>
                         <div className='w-[30px] h-[30px] '>
                             <img src="https://i.ibb.co.com/Kpbv5Bpp/a4c2a2a9ba9fda58fc3fcdf92d806dda-love-pet-shop-logo-design.jpg"
-                            className='w-full h-full rounded-full object-cover'/>
+                                className='w-full h-full rounded-full object-cover' />
                         </div>
 
-                           <a className=" text-xl text-white font-bold">Paw-Mart</a>
+                        <a className=" text-xl text-white font-bold titan">Paw-Mart</a>
                     </div>
-                    <a className="md:hidden text-xl text-white font-bold shrink-0">Paw-Mart</a>
+                    <a className="md:hidden text-xl text-white font-bold shrink-0 titan">Paw-Mart</a>
                 </div>
                 <div className="navbar-center mr-5 lg:mr-0 hidden lg:flex">
                     <ul className=" px-1 text-white font-bold">
-                        <NavLink to='/' className='mr-5'>Home</NavLink>
-                        <NavLink to='/pet_supplies' className='mr-5' >Pet & Supplies</NavLink>
+                        <NavLink to='/' className='mr-5 titan  relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:ease-in-out hover:after:w-full'>
+                            Home
+                        </NavLink>
+                        <NavLink to='/pet_supplies' className='mr-5 titan relative after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 after:ease-in-out hover:after:w-full' >Pet & Supplies</NavLink>
 
                         {
                             user && <>
-                                <NavLink to='/addlisting' className='mr-5'>Add Listing</NavLink>
-                                <NavLink to={`/mylistings/${user.email}`} className='mr-5'>My Listings</NavLink>
-                                <NavLink to={`/myorders/${user.email}`}>My Orders</NavLink>
+                                <NavLink to='/addlisting' className='mr-5 titan
+                                relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:ease-in-out hover:after:w-full'>Add Listing</NavLink>
+                                <NavLink to={`/mylistings/${user.email}`} className='mr-5 titan
+                                relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:ease-in-out hover:after:w-full'>My Listings</NavLink>
+                                <NavLink to={`/myorders/${user.email}`} className='titan mr-5
+                                relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:ease-in-out hover:after:w-full'>My Orders</NavLink>
                             </>
                         }
+                        <NavLink to='/about' className='titan mr-5  relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:ease-in-out hover:after:w-full'>About</NavLink>
+                        <NavLink to='/contact' className='titan mr-5  relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:ease-in-out hover:after:w-full' >
+                            Contact
+                        </NavLink>
+
                     </ul>
                 </div>
 
                 <div className="navbar-end flex gap-2 md:gap-3">
 
-                    {
-                        user && <div className=' relative  rounded-full flex items-center justify-center  gap-3'>
-                            <div onMouseEnter={() => setShowName(true)} onMouseLeave={() => setShowName(false)} className='h-[35px] w-[35px] shrink-0 '>
-                                <img className='h-full w-full rounded-full' src={user.photoURL} alt="" />
-                            </div>
-
-                            {showName && (
-                                <p className="absolute top-[50px] left-1/2 -translate-x-1/2 bg-black text-white text-sm rounded px-3 py-1 whitespace-nowrap shadow">
-                                    {user.displayName}
-                                </p>
-                            )}
 
 
-                        </div>
-                    }
-
-
-
-                    <div>
+                    <div className='mr-4 md:mr-6'>
                         <label className="swap swap-rotate">
                             {/* this hidden checkbox controls the state */}
                             <input onClick={handletheme} type="checkbox" className="theme-controller" value="synthwave" />
 
                             {/* sun icon */}
                             <svg
-                                className="swap-off h-10 w-10 fill-current"
+                                className="swap-off h-10 w-10 fill-current text-white"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path
@@ -127,10 +140,49 @@ const Navbar = () => {
 
 
                     {
-                        user ? <Link onClick={handleSignOut} className='btn px-2 md:px-6' to='/login'>Log Out</Link> :
+
+
+
+
+                        user ?
+                            <div className=' relative  rounded-full flex items-center justify-center  gap-3'>
+
+
+                                <div>
+
+                                    <div onMouseEnter={() => setShowName(true)} onMouseLeave={() => setShowName(false)} className='h-[35px] w-[35px] shrink-0 '>
+                                        <img className='h-full w-full rounded-full' src={user.photoURL} alt="" />
+
+                                    </div>
+
+                                    {showName && (
+                                        <p className="absolute -top-[25px] left-1/2 -translate-x-1/2 bg-black text-white text-sm rounded px-3 py-1 whitespace-nowrap shadow">
+                                            {user.displayName}
+                                        </p>
+                                    )}
+
+                                </div>
+
+
+                                <button className='text-white font-bold  cursor-pointer' onClick={() => setShowDropdown(!showDropdown)}>
+                                    <IoMdArrowDropdown className='text-2xl' />
+                                </button>
+
+                                {showDropdown && (
+                                    <div className="absolute z-50 right-0 top-10 w-40 bg-white rounded shadow-lg border py-1">
+
+                                        <button onClick={handleDashboard} className=" w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer">Dashboard</button>
+                                        <button onClick={handleSignOut} className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer">Log Out</button>
+                                    </div>
+                                )}
+
+
+                            </div>
+
+                            :
                             <>
-                                <Link className='btn' to='/login'>Login</Link>
-                                <Link className='btn' to='/register'>Register</Link>
+                                <Link className='btn rounded-xl titan' to='/login'>Login</Link>
+
                             </>
                     }
 

@@ -14,6 +14,9 @@ import MyOrder from "../Pages/MyOrder";
 import ListDetails from "../Pages/ListDetails";
 import Categories from "../Components/Categories";
 import Error from "../Components/Error";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
 
 
 const router = createBrowserRouter([
@@ -40,6 +43,14 @@ const router = createBrowserRouter([
                 path: 'pet_supplies',
                 Component: Pet_Supplies,
                 loader: () => fetch('https://pawmart10.vercel.app/addlist')
+            },
+            {
+                path: 'about',
+                Component: About,
+            },
+            {
+                path: 'contact',
+                Component: Contact,
             },
 
             {
@@ -74,6 +85,11 @@ const router = createBrowserRouter([
                 Component:Categories
             }
         ]
+    },
+    {
+        path:'/dashboard',
+        Component:DashboardHome
+
     },
     {
         path:'*',

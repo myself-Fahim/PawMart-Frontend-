@@ -3,30 +3,126 @@ import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import 'swiper/css/navigation';
+import bgImg from '../../assets/BannerImg.jpg'
+import { Link } from 'react-router';
 
 
 const Slider = () => {
     return (
-        <div className='px-5 lg:px-20 mt-[70px]'>
-            <Swiper pagination={{
-                clickable:true
-            }} modules={[Pagination]}
-            navigation={true} className="mySwiper rounded-[10px] ">
+
+        <div>
+            <style jsx>{`
+                .mySwiper .swiper-button-next,
+                .mySwiper .swiper-button-prev
+                 {
+                    color: white !important;
+                }
+                .mySwiper .swiper-pagination-bullet {
+                background: white !important;
+                }
+                .mySwiper .swiper-pagination-bullet-active {
+                background: white !important;
+                opacity: 1 !important;
+                }
+            `}</style>
+
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
+                loop={true}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+
+            >
                 <SwiperSlide>
-                    <div className=' w-full h-[600px]  '>
-                        <img src="https://i.ibb.co.com/k6BPYRCh/fluffy-cat-in-dog-outfit.webp" className='w-full object-cover h-full' />
-                    </div>
+                    <section
+                        className='flex justify-center items-center '
+                        style={{
+                            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),url(${bgImg})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            height: "90vh",
+                            opacity: 1.9
+
+                        }}
+                    >
+                        <div
+                            className='animate__animated animate__fadeInDown text-white'
+                        >
+
+                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan underline font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
+                            <h1 className='titan text-center text-xl lg:text-3xl '>COMPASSIONATE CARE FOR EVERY COMPANION</h1>
+                              <div className='flex justify-center mt-10  rounded-xl '>
+                                 <Link to='/pet_supplies' className='btn  titan px-8 rounded-xl  text-white bg-black/60
+                                  transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-white hover:shadow-lg' >See All</Link>
+                            </div>
+                           
+                        </div>
+
+                    </section>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex justify-center w-full h-[600px] rounded-md items-center'>
-                        <img src="https://bestfriendspetcare.com/wp-content/uploads/2023/05/pet-adoption-main-photo-resize-scaled-2.jpg" className='w-full object-cover h-full' />
-                    </div>
+                    <section
+                        className='flex justify-center items-center '
+                        style={{
+                            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),url(https://bestfriendspetcare.com/wp-content/uploads/2023/05/pet-adoption-main-photo-resize-scaled-2.jpg)`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            height: "90vh",
+                            opacity: 1.9
+
+                        }}
+                    >
+                        <div
+                            className='animate__animated animate__fadeInDown text-white'
+                        >
+
+                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan underline font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
+                            <h1 className='titan text-center text-xl lg:text-3xl '>COMPASSIONATE CARE FOR EVERY COMPANION</h1>
+                               <div className='flex justify-center mt-10  rounded-xl '>
+                                 <Link to='/pet_supplies' className='btn  titan px-8 rounded-xl  text-white bg-black/60
+                                  transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-white hover:shadow-lg' >See All</Link>
+                            </div>
+                           
+                        </div>
+
+                    </section>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex justify-center w-full h-[600px]  rounded-md items-center'>
-                      <img src="https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/adopt-a-pet-adopting-a-dog-selecting-your-dog__FocusFillWzE0NzIsNjI0LCJ5IiwxMDFd.jpg" className='w-full object-cover h-full' alt="" />
-                    </div>
+                    <section
+                        className='flex justify-center items-center '
+                        style={{
+                            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),url(https://i.ibb.co.com/k6BPYRCh/fluffy-cat-in-dog-outfit.webp)`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            height: "90vh",
+                            opacity: 1.9
+
+                        }}
+                    >
+                        <div
+                            className='animate__animated animate__fadeInDown text-white'
+                        >
+
+                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan underline font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
+                            <h1 className='titan text-center text-xl lg:text-3xl '>COMPASSIONATE CARE FOR EVERY COMPANION</h1>
+                            <div className='flex justify-center mt-10  rounded-xl '>
+                                 <Link to='/pet_supplies' className='btn  titan px-8 rounded-xl  text-white bg-black/60
+                                  transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-white hover:shadow-lg' >See All</Link>
+                            </div>
+                           
+
+                        </div>
+
+                    </section>
                 </SwiperSlide>
             </Swiper>
         </div>
@@ -34,3 +130,6 @@ const Slider = () => {
 };
 
 export default Slider;
+
+// https://bestfriendspetcare.com/wp-content/uploads/2023/05/pet-adoption-main-photo-resize-scaled-2.jpg
+// https://i.ibb.co.com/k6BPYRCh/fluffy-cat-in-dog-outfit.webp
