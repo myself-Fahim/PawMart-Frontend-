@@ -56,7 +56,7 @@ const Slider = () => {
                             className='animate__animated animate__fadeInDown text-white'
                         >
 
-                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan underline font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
+                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan  font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
                             <h1 className='titan text-center text-xl lg:text-3xl '>COMPASSIONATE CARE FOR EVERY COMPANION</h1>
                               <div className='flex justify-center mt-10  rounded-xl '>
                                  <Link to='/pet_supplies' className='btn  titan px-8 rounded-xl  text-white bg-black/60
@@ -84,7 +84,7 @@ const Slider = () => {
                             className='animate__animated animate__fadeInDown text-white'
                         >
 
-                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan underline font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
+                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan  font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
                             <h1 className='titan text-center text-xl lg:text-3xl '>COMPASSIONATE CARE FOR EVERY COMPANION</h1>
                                <div className='flex justify-center mt-10  rounded-xl '>
                                  <Link to='/pet_supplies' className='btn  titan px-8 rounded-xl  text-white bg-black/60
@@ -112,7 +112,7 @@ const Slider = () => {
                             className='animate__animated animate__fadeInDown text-white'
                         >
 
-                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan underline font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
+                            <h1 className=' text-center text-white/60  mb-4 md:mb-9 titan  font-bold text-2xl md:text-3xl lg:text-5xl'>Welcome To PawMart</h1>
                             <h1 className='titan text-center text-xl lg:text-3xl '>COMPASSIONATE CARE FOR EVERY COMPANION</h1>
                             <div className='flex justify-center mt-10  rounded-xl '>
                                  <Link to='/pet_supplies' className='btn  titan px-8 rounded-xl  text-white bg-black/60

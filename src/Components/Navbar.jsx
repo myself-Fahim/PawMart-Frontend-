@@ -39,7 +39,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='bg-black/60 z-50 py-4 px-[5px] lg:px-[70px]'>
+        <div className='bg-black/60 z-50 py-4 px-[5px] lg:px-[80px]'>
             <Toaster />
             <div className="flex justify-between p-3 ">
                 <div className="navbar-start">

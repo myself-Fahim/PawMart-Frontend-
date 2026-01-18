@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import AuthContext from '../AuthContext/AuthContext';
 import Loader from '../Components/Loader';
 import { Eye, EyeOff } from 'lucide-react';
+import Navbar from '../Components/Navbar';
 
 
 const provider = new GoogleAuthProvider()
@@ -52,8 +53,9 @@ const Login = () => {
 
 
     return (
-
-        <div className='min-h-screen flex items-center justify-center'>
+        <>
+          <Navbar></Navbar>
+           <div className='min-h-screen flex items-center justify-center'>
             <Toaster></Toaster>
             <form onSubmit={handleEmailPass} >
                 <h1 className='text-center text-slate-500 text-3xl font-bold mb-4'>Login</h1>
@@ -93,6 +95,12 @@ const Login = () => {
 
             </form>
         </div>
+        
+        </>
+
+        
+
+       
     );
 };
 

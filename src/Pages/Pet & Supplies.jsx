@@ -29,7 +29,7 @@ const Pet_Supplies = () => {
 
         <>
         <Navbar></Navbar>
-        <div className='mt-15 mb-20 px-[20px] lg:px-[70px]'>
+        <div className='mt-15 mb-20 px-[20px] lg:px-[90px]'>
 
             <div className='flex flex-col gap-6 md:gap-0 md:flex-row justify-between'>
                 <h1 className='font-bold text-2xl'>Total Data ({SearchCategory.length})</h1>
@@ -51,7 +51,7 @@ const Pet_Supplies = () => {
                 loading ? <Loader></Loader> : <div>
                     {
                         SearchCategory.length ?
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10  '>
+                            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-3 mt-10  '>
                                 {
                                     SearchCategory.map(pet => <PetSuppliesCard key={pet._id} pet={pet}></PetSuppliesCard>)
                                 }

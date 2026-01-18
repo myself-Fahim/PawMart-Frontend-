@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import AuthContext from '../AuthContext/AuthContext';
 import Loader from '../Components/Loader';
 import jsPDF from 'jspdf';
+import Navbar from '../Components/Navbar';
 
 const MyOrder = () => {
     const { user } = useContext(AuthContext)
@@ -65,6 +66,7 @@ const downloadPDF = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <h1 className='font-bold text-center mt-5 text-3xl underline'>My Orders</h1>
             {
                localLoader ?<Loader></Loader> :<div className="overflow-x-auto mt-15 flex md:justify-center">

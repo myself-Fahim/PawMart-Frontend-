@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import AuthContext from '../AuthContext/AuthContext';
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast';
+import Navbar from '../Components/Navbar';
 
 
 const AddListing = () => {
@@ -39,7 +40,9 @@ const AddListing = () => {
     }
 
     return (
-        <div className='min-h-screen  flex  justify-center'>
+        <>
+        <Navbar></Navbar>
+          <div className='min-h-screen  flex  justify-center'>
           
             <Toaster></Toaster>
             <form onSubmit={handleSubmit} className='w-full max-w-[600px] mx-4 md:mx-0'>
@@ -129,6 +132,9 @@ const AddListing = () => {
             </form>
 
         </div>
+        
+        </>
+      
     );
 
 };

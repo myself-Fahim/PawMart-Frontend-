@@ -2,34 +2,42 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router'
 import AuthContext from '../AuthContext/AuthContext';
 import Loader from './Loader';
+import { FaDollarSign } from "react-icons/fa";
 
 
 const PetSuppliesCard = ({ pet }) => {
-    const { image, category, name, price, location, _id } = pet
+    const { image, category, name, price, location, _id, description } = pet
 
     return (
         <div>
-            
-               
-                <div className=' p-10 shadow-2xl rounded-[14px]'>
-                <div className='h-[300px]'>
-                    <img className='w-full h-full rounded-xl object-cover' src={image} alt="" />
-                </div>
-                <p className='my-[20px] text-slate-500 font-bold text-xl'>{name}</p>
-                <div className='flex justify-between font-bold mb-4'>
-                    <h1 className='font-bold '>Price: {price}$</h1>
-                    <h1 className='font-bold '>Category: {category}</h1>
+            <div className=' bg-white rounded-[14px] shadow-sm h-full flex flex-col'>
+                <div className='h-[250px] '>
+                    <img className='w-full h-full rounded-t-[14px] object-cover ' src={image} alt="" />
                 </div>
 
-                <p className='bg-white px-3 py-1 shadow-2xl  rounded-[14px] border text-black w-fit'><span className='font-bold'>Location : </span>{location}</p>
+                <div className='p-8 pt-4'>
+                    <h1 className='my-3 text-black/70 font-bold text-2xl'>{name}</h1>
+                    <p className='mb-3 text-black/50 font-bold'>{description}</p>
+                    <div className='flex flex-wrap gap-2 items-center mb-5'>
+                        <div className='flex items-center bg-black/20  py-1 px-3 rounded-xl '>
+                            <h1 className='font-bold text-black/70'>{price}</h1>
+                            <FaDollarSign className='text-[1rem] text-black/70' />
+                        </div>
 
-                <Link to={`/listdetails/${_id}`} className='btn flex  justify-center mt-[20px] bg-slate-500 rounded-xl text-white '>See Details</Link>
+                        <h1 className='font-bold bg-black/20  py-1 px-3 rounded-xl text-black/70'>{category}</h1>
+                        <h1 className='font-bold bg-black/20  py-1 px-3 rounded-xl text-black/70'>{location}</h1>
+                    </div>
+
+                    <Link to={`/listdetails/${_id}`} className='btn flex flex-grow justify-center mt-auto bg-black/60 rounded-2xl text-white transition-transform duration-300 ease-in-out hover:scale-102'>See Details</Link>
+
+                </div>
+
 
             </div>
 
 
-            
-        
+
+
         </div>
     );
 };

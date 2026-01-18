@@ -62,7 +62,7 @@ const Home = () => {
                         :
                         <section className='mt-[60px] '>
                             <h1 className='text-center font-bold text-2xl mb-[40px]'>Find Your Furry Friend Today!</h1>
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-20'>
+                            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3  lg:px-30'>
                                 {
 
                                     [...pets].sort((a, b) => b._id.localeCompare(a._id)).slice(0, 6).map(pet => <PetCard key={pet._id} pet={pet}></PetCard>)
@@ -72,7 +72,7 @@ const Home = () => {
                 }
 
                 <section className='my-[90px]'>
-                    <div className='   px-5 lg:px-20 text-justify '>
+                    <div className='   px-5 lg:px-30 text-justify '>
                         <div className='bg-base-300 p-6 border border-black rounded-[14px] shadow-lg '>
                             <h1 className='text-center font-bold text-2xl mb-5'>Why Adopt from PawMart? </h1>
 
@@ -89,7 +89,7 @@ const Home = () => {
 
                 <section className='mt-[60px]'>
                     <h1 className='font-bold text-2xl text-center mb-[30px]'>Meet Our Pet Heroes</h1>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-20'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-30'>
                         {
                             Experts.map(expert => <PetExperts key={expert.name} expert={expert}></PetExperts>)
                         }

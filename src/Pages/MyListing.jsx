@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import axios from 'axios'
 import Loader from '../Components/Loader';
 import toast, { Toaster } from 'react-hot-toast';
+import Navbar from '../Components/Navbar';
 const MyListing = () => {
     const { user } = useContext(AuthContext)
     const [listing, setListing] = useState([])
@@ -74,6 +75,7 @@ const MyListing = () => {
     return (
 
         <div>
+            <Navbar></Navbar>
             <h1 className='font-bold text-center mt-5 text-3xl underline'>My Listings</h1>
 
 
