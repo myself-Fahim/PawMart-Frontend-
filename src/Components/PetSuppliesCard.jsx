@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router'
+import { Link, NavLink, useNavigate } from 'react-router'
 import AuthContext from '../AuthContext/AuthContext';
 import Loader from './Loader';
 import { FaDollarSign } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { FaDollarSign } from "react-icons/fa";
 
 const PetSuppliesCard = ({ pet }) => {
     const { image, category, name, price, location, _id, description } = pet
+    const navigator = useNavigate()
      const handleDetails = () => {
         navigator(`/listdetails/${_id}`)
     }

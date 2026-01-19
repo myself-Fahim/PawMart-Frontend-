@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { useLoaderData } from 'react-router';
+import { Navigate, useLoaderData, useNavigate } from 'react-router';
 import AuthContext from '../AuthContext/AuthContext';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
@@ -16,7 +16,7 @@ const ListDetails = () => {
     const data = useLoaderData()
     const [quantity, setQuantity] = useState(1)
     const { image, category, email, description, price, location, name, _id } = data
-    console.log(data)
+    const navigator = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -51,6 +51,15 @@ const ListDetails = () => {
             })
     }
 
+    const handleOrder = () =>{
+         if(user) 
+            document.getElementById('my_modal_3').showModal()
+         else{
+            navigator('/login')
+         }  
+                                
+    }
+
 
 
     return (
@@ -58,7 +67,7 @@ const ListDetails = () => {
             <Navbar></Navbar>
             <Toaster></Toaster>
             <div className="  min-h-screen pt-20  ">
-                <div className='flex gap-5 justify-center'>
+                <div className='flex flex-col items-center lg:flex-row lg:items-start gap-5 justify-center'>
                     <div className='h-130 w-130  rounded-md '>
                         <img
                             src={image}
@@ -67,8 +76,8 @@ const ListDetails = () => {
                     </div>
 
                     <div className='w-130 p-10 rounded-md'>
-                        <div className='flex justify-between items-center'>
-                            <h1 className='titan font-bold text-4xl'>
+                        <div className='flex flex-col lg:flex-row gap-3 lg:gap-0 justify-center lg:justify-between items-center'>
+                            <h1 className='titan font-bold text-2xl lg:text-4xl'>
                                 {
                                     category == 'pet' ? `${name} - For Adopt` : `${ name } - For Pet`
                                 }
@@ -76,19 +85,19 @@ const ListDetails = () => {
                             <h1 className='bg-black/20 text-xl py-1 px-5 rounded-xl'>{category}</h1>
                         </div>
 
-                        <h1 className='titan  mt-2 text-black/60'>{description}</h1>
+                        <h1 className='titan text-center lg:text-start mt-2 '>{description}</h1>
 
-                        <div className='flex items-center gap-1 mt-5 mb-1'>
-                            <MdEmail className='text-black/50' />
-                            <h1 className='font-bold text-[1.2] text-black/50'>{email}</h1>
+                        <div className='flex items-center justify-center  lg:justify-start gap-1 mt-1 lg:mt-5 mb-1'>
+                            <MdEmail className='text-black/50 dark:text-white' />
+                            <h1 className='font-bold text-[1.2rem] dark:!text-white text-black/50 '>{email}</h1>
                         </div>
-                        <div className='flex items-center gap-1 mb-7'>
+                        <div className='flex items-center justify-center lg:justify-start gap-1 mb-7'>
                             <IoLocation className='text-black/50' />
-                            <h1 className='font-bold text-[1.2] text-black/50'>{location}</h1>
+                            <h1 className='font-bold text-[1.2rem] text-black/50'>{location}</h1>
                         </div>
 
                         <div className='border-b '>
-                            <div className='flex items-center mb-5'>
+                            <div className='flex items-center mb-5 justify-center lg:justify-start'>
                                 <FaDollarSign className='text-4xl titan'></FaDollarSign>
                                 <h1 className='text-4xl font-bold titan'>{price}</h1>
 
@@ -96,7 +105,7 @@ const ListDetails = () => {
                         </div>
 
 
-                        <div className=' mt-10 flex justify-between items-center'>
+                        <div className=' mt-10 flex flex-col gap-5 lg:flex-row lg:gap-0 lg:justify-between items-center'>
 
 
                             <div className=' border w-fit px-1 rounded-md'>
@@ -111,11 +120,14 @@ const ListDetails = () => {
                                 </div>
                             </div>
 
-                            <button onClick={() => document.getElementById('my_modal_3').showModal()} className=' btn bg-black/60  text-white rounded-lg '>Order Now</button>
+                            <button onClick={handleOrder} className=' btn bg-black/60  text-white rounded-lg '>Order Now</button>
 
                         </div>
                     </div>
-                    <dialog id="my_modal_3" className="modal my-15">
+
+                   
+                    {
+                        user &&  <dialog id="my_modal_3" className="modal my-15">
                         <div className="modal-box">
                             <form method="dialog">
                             
@@ -127,7 +139,7 @@ const ListDetails = () => {
                                 <fieldset className="fieldset w-full  block mx-auto mx-10  py-8 border-base-300 rounded-box  border p-4">
 
                                     <label className="label font-bold">Buyer Name</label> <br />
-                                    <input value={user.displayName} type="text" name='name' className="input w-full" placeholder="Name" /> <br />
+                                    <input value={user?.displayName} type="text" name='name' className="input w-full" placeholder="Name" /> <br />
 
                                     <label className="label font-bold pt-5">Email</label> <br />
                                     <input value={user.email} type="email" name='email' className="input input w-full" placeholder="Email" /> <br />
@@ -165,7 +177,8 @@ const ListDetails = () => {
                                 </fieldset>
                             </form>
                         </div>
-                    </dialog>
+                    </dialog> 
+                    }
 
                 </div>
             </div>

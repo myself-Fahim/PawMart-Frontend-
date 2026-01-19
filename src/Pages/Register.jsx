@@ -6,6 +6,8 @@ import AuthContext from '../AuthContext/AuthContext';
 import Loader from '../Components/Loader';
 import toast, { Toaster } from 'react-hot-toast';
 import { Eye, EyeOff } from 'lucide-react';
+import bgImg from '../../assets/BannerImg.jpg'
+import Navbar from '../Components/Navbar';
 
 const Register = () => {
 
@@ -51,25 +53,37 @@ const Register = () => {
 
     return (
 
-        loader ? <Loader></Loader> :
-            <div>
+        <>
+        <Navbar></Navbar>
+
+        {
+             loader ? <Loader></Loader> :
+            <div style={{
+                            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),url(${bgImg})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            height: "90vh",
+                            opacity: 1.9
+            
+                        }}  className='min-h-screen flex items-center justify-center'>
                 <Toaster></Toaster>
                 <div className='min-h-screen flex items-center justify-center'>
                     <form onSubmit={handleCreateUser}>
-                        <h1 className='text-center text-slate-500 text-3xl font-bold mb-4'>Register</h1>
+                        <h1 className='text-center  text-3xl font-bold mb-6 text-white titan'>Register Here!</h1>
                         <fieldset className="fieldset shadow-2xl py-8 border-base-300 rounded-box w-xs border p-4">
 
-                            <label className="label font-bold">Name</label>
+                            <label className="label font-bold text-white">Name</label>
                             <input type="text" name='name' className="input " placeholder="Your Name" />
 
-                            <label className="label font-bold">Email</label>
+                            <label className="label font-bold text-white">Email</label>
                             <input type="email" name='email' className="input " placeholder="Email" />
 
 
-                            <label className="label font-bold">Photo URL</label>
+                            <label className="label font-bold text-white">Photo URL</label>
                             <input type="text" name='photo' className="input " placeholder="URL" />
 
-                            <label className="label font-bold">Password</label>
+                            <label className="label font-bold text-white">Password</label>
                              <div className='relative flex items-center'>
                         <input type={showPass ? 'text' : 'password'} name='password' className="input  " placeholder="Password" />
 
@@ -84,10 +98,10 @@ const Register = () => {
                     </div>
 
                             {
-                                error && <p className='text-red-800 font-bold mt-2'>{error}</p>
+                                error && <p className='text-white font-bold mt-2'>{error}</p>
                             }
 
-                            <button className="btn btn-neutral bg-slate-500 border-none hover:transition ease-in-out mt-4">Register</button>
+                            <button className="btn btn-neutral bg-cyan-900 border-none hover:transition ease-in-out mt-4">Register</button>
 
 
                             <p className='text-center mt-[10px]'>Already have an account? <Link to='/login' className='font-bold underline'>Login</Link></p>
@@ -96,6 +110,16 @@ const Register = () => {
                     </form>
                 </div>
             </div>
+
+
+        }
+        
+        </>
+
+
+        
+
+       
     );
 };
 

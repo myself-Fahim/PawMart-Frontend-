@@ -23,8 +23,9 @@ const Navbar = () => {
             .catch((error) => toast.error(error.message))
     }
 
-    const handletheme = () => {
-        setChecked(prev => !prev)
+    const handletheme = (e) => {
+       
+        setChecked(e.target.checked)
     }
 
     const handleDashboard = () => {
@@ -34,6 +35,12 @@ const Navbar = () => {
     useEffect(() => {
         const theme = checked ? "dark" : "light"
         document.documentElement.setAttribute("data-theme", theme)
+
+        if (checked) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
     }, [checked])
 
 
@@ -117,7 +124,7 @@ const Navbar = () => {
                     <div className='mr-4 md:mr-6'>
                         <label className="swap swap-rotate">
                             {/* this hidden checkbox controls the state */}
-                            <input onClick={handletheme} type="checkbox" className="theme-controller" value="synthwave" />
+                            <input onChange={handletheme} type="checkbox" className="theme-controller" value="synthwave"  checked={checked} />
 
                             {/* sun icon */}
                             <svg
@@ -163,7 +170,7 @@ const Navbar = () => {
                                             />
                                         ) : (
                                             <div className='h-full w-full rounded-full bg-gray-300 flex items-center justify-center'>
-                                                <CgProfile size={20} className='text-gray-600'/>
+                                                <CgProfile size={20} className='text-gray-600' />
                                             </div>
                                         )}
 
