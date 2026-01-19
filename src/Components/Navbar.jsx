@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth';
 import auth from '../Firebase/firebase.init';
 import toast, { Toaster } from 'react-hot-toast';
 import { IoMdArrowDropdown } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 
 
 
@@ -13,6 +14,8 @@ const Navbar = () => {
     const [showName, setShowName] = useState(false)
     const [checked, setChecked] = useState(false)
     const [showDropdown, setShowDropdown] = useState(false);
+    const [imageError, setImageError] = useState(false);
+
     const navigator = useNavigate();
     const handleSignOut = () => {
         signOut(auth)
@@ -39,7 +42,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='bg-black/60 z-50 py-4 px-[5px] lg:px-[80px]'>
+        <div className='bg-[#2D2D2D] z-50 py-4 px-[5px] lg:px-[80px]'>
             <Toaster />
             <div className="flex justify-between p-3 ">
                 <div className="navbar-start">
@@ -151,7 +154,18 @@ const Navbar = () => {
                                 <div>
 
                                     <div onMouseEnter={() => setShowName(true)} onMouseLeave={() => setShowName(false)} className='h-[35px] w-[35px] shrink-0 '>
-                                        <img className='h-full w-full rounded-full' src={user.photoURL} alt="" />
+                                        {!imageError && user?.photoURL ? (
+                                            <img
+                                                className='h-full w-full rounded-full object-cover'
+                                                src={user.photoURL}
+                                                alt="Profile avatar"
+                                                onError={() => setImageError(true)}
+                                            />
+                                        ) : (
+                                            <div className='h-full w-full rounded-full bg-gray-300 flex items-center justify-center'>
+                                                <CgProfile size={20} className='text-gray-600'/>
+                                            </div>
+                                        )}
 
                                     </div>
 

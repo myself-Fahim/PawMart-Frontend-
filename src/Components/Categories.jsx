@@ -7,9 +7,8 @@ import Loader from './Loader';
 const Categories = () => {
     const {categoryName} = useParams()
     const [categories,setCategories] = useState([])
-    const [loading,setLoading] = useState(false)
+    const [loading,setLoading] = useState(true)
     useEffect(()=>{
-        setLoading(true)
         axios(`https://pawmart10.vercel.app/categories/${categoryName}`)
         .then(res=>{
             setCategories(res.data)
@@ -17,13 +16,17 @@ const Categories = () => {
         })
     },[categoryName])
 
+
+    if(loading){
+        return <Loader></Loader>
+    }
+
  
     return (
-       loading ? <Loader></Loader> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-[20px] lg:mx-[70px] mt-[40px]'>
+        <div className='mb-20 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mx-[20px] lg:mx-[70px] mt-[40px]'>
             {
                 categories.map(caategory => <Category key={caategory._id} caategory={caategory}></Category>)
             }
-            
         </div>
     );
 };

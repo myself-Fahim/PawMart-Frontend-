@@ -29,6 +29,7 @@ const Experts = [
     }
 ]
 
+
 const Home = () => {
     const { pets, loader } = usePetData()
 
@@ -37,31 +38,76 @@ const Home = () => {
         <>
             <Navbar></Navbar>
             <div className='mb-[70px]'>
-    
                 <Slider></Slider>
 
-                <h1 className='font-bold text-2xl text-center mt-20'>Categories</h1>
-                <section className='mb-20 mt-10 flex flex-col items-center md:flex-row justify-center gap-8'>
-                    <Link to={`categories/pet`} className='w-[300px] h-[200px] bg-yellow-600 rounded-[40px] flex items-center justify-center'>
-                        <h1 className='text-white font-bold text-2xl'>Pet</h1>
-                    </Link>
-                    <Link to={`categories/food`} className='w-[300px] h-[200px] bg-green-600 rounded-[40px] flex items-center justify-center'>
-                        <h1 className='text-white font-bold text-2xl'>Food</h1>
-                    </Link>
-                    <Link to={`categories/accessories`} className='w-[300px] h-[200px] bg-blue-600 rounded-[40px] flex items-center justify-center'>
-                        <h1 className='text-white font-bold text-2xl'>Accessories</h1>
-                    </Link>
-                    <Link to={`categories/care`} className='w-[300px] h-[200px] bg-red-600 rounded-[40px] flex items-center justify-center'>
-                        <h1 className='text-white font-bold text-2xl'>Care</h1>
-                    </Link>
-                </section>
+{/* Categories Card */}
+                <section className='py-20 pb-30 bg-[#2D2D2D] '>
+                    <h1 className='font-bold text-2xl text-center mb-15 titan text-[#FFFFFF]'>Our Product Varient</h1>
 
+                    <div className='flex flex-col items-center md:flex-row justify-center gap-8'>
+                    
+                        <Link
+                            to='categories/pet'
+                            className='w-[300px] h-[400px] border border-white rounded-[40px] flex items-center justify-center overflow-hidden group relative transition-all duration-300 hover:scale-105 hover:shadow-2xl'
+                        >
+                            <img
+                                src="../../assets/krista-mangulsone-9gz3wfHr65U-unsplash.jpg"
+                                alt="Pet"
+                                className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                            />
+                            <div className='absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300' />
+                            <h1 className='text-white font-bold text-2xl md:text-4xl relative z-10 transition-all duration-300 group-hover:scale-110'>Pet</h1>
+                        </Link>
+
+                    
+                        <Link
+                            to='categories/food'
+                            className='w-[300px] border border-white h-[400px] rounded-[40px] flex items-center justify-center overflow-hidden group relative transition-all duration-300 hover:scale-105 hover:shadow-2xl'
+                        >
+                            <img
+                                src="../../assets/food.jpg"
+                                alt="Food"
+                                className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                            />
+                            <div className='absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300' />
+                            <h1 className='text-white font-bold text-2xl md:text-4xl relative z-10 transition-all duration-300 group-hover:scale-110'>Food</h1>
+                        </Link>
+
+                        
+                        <Link
+                            to='categories/accessories'
+                            className='w-[300px] border border-white h-[400px] rounded-[40px] flex items-center justify-center overflow-hidden group relative transition-all duration-300 hover:scale-105 hover:shadow-2xl'
+                        >
+                            <img
+                                src="../../assets/accessories.jpg"
+                                alt="Accessories"
+                                className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                            />
+                            <div className='absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300' />
+                            <h1 className='text-white font-bold text-2xl md:text-4xl relative z-10 transition-all duration-300 group-hover:scale-110'>Accessories</h1>
+                        </Link>
+
+                   
+                        <Link
+                            to='categories/care'
+                            className='w-[300px] border border-white h-[400px] rounded-[40px] flex items-center justify-center overflow-hidden group relative transition-all duration-300 hover:scale-105 hover:shadow-2xl'
+                        >
+                            <img
+                                src="../../assets/care.jpg"
+                                alt="Care"
+                                className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                            />
+                            <div className='absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300' />
+                            <h1 className='text-white font-bold text-2xl md:text-4xl relative z-10 transition-all duration-300 group-hover:scale-110'>Care</h1>
+                        </Link>
+                    </div>
+                </section>
 
                 {
                     loader ? <Loader></Loader>
                         :
-                        <section className='mt-[60px] '>
-                            <h1 className='text-center font-bold text-2xl mb-[40px]'>Find Your Furry Friend Today!</h1>
+                        <section className='mt-[100px] '>
+                            <h1 className='text-center font-bold text-2xl mb-[40px] titan'>Latest Available Product</h1>
                             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3  lg:px-30'>
                                 {
 
@@ -78,11 +124,6 @@ const Home = () => {
 
                             <p className='text-[1rem] text-[grey]'>At PawMart, we believe every pet deserves a loving home. That’s why we make the adoption process safe, simple, and trustworthy for everyone. Our platform connects caring families with pets who are waiting for a second chance—ensuring you find the perfect companion with confidence.Every pet listed on PawMart is posted by verified owners, shelters, or caregivers. We carefully review each profile so you can adopt with peace of mind.From browsing pets to contacting owners, our user-friendly system makes adoption smooth and stress-free, even for first-time pet parents.By adopting through PawMart, you’re giving an animal a chance at a better life. Every adoption helps reduce abandonment and supports responsible pet care in your community.</p>
                         </div>
-
-
-
-
-
                     </div>
                 </section>
 

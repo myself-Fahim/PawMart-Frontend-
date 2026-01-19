@@ -17,6 +17,8 @@ import Error from "../Components/Error";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import DashboardHome from "../Pages/Dashboard/DashboardHome";
+import { Suspense } from "react";
+import Loader from "../Components/Loader";
 
 
 const router = createBrowserRouter([
@@ -74,9 +76,9 @@ const router = createBrowserRouter([
             },
             {
                 path: 'listdetails/:id',
-                element: <PrivateRoutes>
-                    <ListDetails></ListDetails>
-                </PrivateRoutes>, 
+                element:<Suspense fallback={<Loader></Loader>}>
+                     <ListDetails></ListDetails>
+                </Suspense>, 
                 loader: ({ params }) => fetch(`https://pawmart10.vercel.app/listdetails/${params.id}`)
             },
 

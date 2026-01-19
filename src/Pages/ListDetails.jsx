@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useLoaderData } from 'react-router';
 import AuthContext from '../AuthContext/AuthContext';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-
+import Loader from '../Components/Loader';
+import { MdEmail } from "react-icons/md";
+import { IoLocation } from "react-icons/io5";
+import Navbar from '../Components/Navbar';
+import { FaDollarSign } from "react-icons/fa";
+import { GoPlus } from "react-icons/go";
+import { HiMinusSm } from "react-icons/hi";
 const ListDetails = () => {
     const { user } = useContext(AuthContext)
     const data = useLoaderData()
+    const [quantity, setQuantity] = useState(1)
     const { image, category, email, description, price, location, name, _id } = data
+    console.log(data)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -36,52 +44,81 @@ const ListDetails = () => {
             quantity,
             address
         }
-        axios.post('https://pawmart10.vercel.app/order',formData)
-        .then(res => {
-        document.getElementById('my_modal_3').close()
-        toast.success('Submitted Successfully')
-        })
-    
-        
+        axios.post('https://pawmart10.vercel.app/order', formData)
+            .then(res => {
+                document.getElementById('my_modal_3').close()
+                toast.success('Submitted Successfully')
+            })
     }
+
 
 
     return (
         <div>
+            <Navbar></Navbar>
             <Toaster></Toaster>
-            <div className=" bg-base-200  min-h-screen pt-20 px-[20px] lg:px-[40px]">
-                <div className=" grid grid-cols-1 gap-10 px-6 lg:px-0 lg:grid-cols-[1fr_1fr] items-center  bg-white py-10 lg:pl-10 rounded-[15px]">
-                    <div className='flex flex-col  w-full lg:w-auto border-b pb-20 lg:border-b-0 lg:pb-0 lg:flex-row items-center lg:border-r lg:pr-20'>
+            <div className="  min-h-screen pt-20  ">
+                <div className='flex gap-5 justify-center'>
+                    <div className='h-130 w-130  rounded-md '>
                         <img
                             src={image}
-                            className="max-w-[200px] mb-10 lg:mr-8 rounded-lg shadow-2xl"
+                            className='h-full w-full '
                         />
-                        <div>
-                            <h1 className="text-3xl text-center lg:text-start font-bold">{name}</h1>
-                            <p className="py-6 text-slate-500 text-center lg:text-start font-bold">
-                                {description}
-                            </p>
-                            <p className='text-xl text-center lg:text-start'><span className='font-bold'>Owner's Mail</span> : {email}</p>
+                    </div>
+
+                    <div className='w-130 p-10 rounded-md'>
+                        <div className='flex justify-between items-center'>
+                            <h1 className='titan font-bold text-4xl'>
+                                {
+                                    category == 'pet' ? `${name} - For Adopt` : `${ name } - For Pet`
+                                }
+                            </h1>
+                            <h1 className='bg-black/20 text-xl py-1 px-5 rounded-xl'>{category}</h1>
+                        </div>
+
+                        <h1 className='titan  mt-2 text-black/60'>{description}</h1>
+
+                        <div className='flex items-center gap-1 mt-5 mb-1'>
+                            <MdEmail className='text-black/50' />
+                            <h1 className='font-bold text-[1.2] text-black/50'>{email}</h1>
+                        </div>
+                        <div className='flex items-center gap-1 mb-7'>
+                            <IoLocation className='text-black/50' />
+                            <h1 className='font-bold text-[1.2] text-black/50'>{location}</h1>
+                        </div>
+
+                        <div className='border-b '>
+                            <div className='flex items-center mb-5'>
+                                <FaDollarSign className='text-4xl titan'></FaDollarSign>
+                                <h1 className='text-4xl font-bold titan'>{price}</h1>
+
+                            </div>
+                        </div>
+
+
+                        <div className=' mt-10 flex justify-between items-center'>
+
+
+                            <div className=' border w-fit px-1 rounded-md'>
+                                <div className='flex items-center gap-3'>
+                                    <button onClick={quantity > 1 ? () => setQuantity(quantity - 1) : quantity} className='cursor-pointer'>
+                                        <HiMinusSm />
+                                    </button>
+                                    <h1>{quantity}</h1>
+                                    <button onClick={() => setQuantity(quantity + 1)} className='cursor-pointer'>
+                                        <GoPlus className='font-bold' />
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button onClick={() => document.getElementById('my_modal_3').showModal()} className=' btn bg-black/60  text-white rounded-lg '>Order Now</button>
+
                         </div>
                     </div>
-
-
-                    <div className='lg:pl-20 text-center lg:text-start'>
-                        <h1 className=' text-2xl'><span className='font-bold'>Category</span> : {category}</h1>
-                        <h1 className=' text-2xl py-7'><span className='font-bold'>Price</span> : {price}$</h1>
-                        <h1 className='text-2xl'><span className='font-bold'>Location </span> : {location}</h1>
-
-                    </div>
-
-                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className='w-fit btn bg-slate-500 mt-10 text-white lg:col-span-2 block mx-auto'>Order Now</button>
-
-
-                    {/* Open the modal using document.getElementById('ID').showModal() method */}
-
                     <dialog id="my_modal_3" className="modal my-15">
                         <div className="modal-box">
                             <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
+                            
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             </form>
                             <h1 className='mb-5 font-bold '>Fill the form</h1>
